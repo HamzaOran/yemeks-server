@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const response = await RecipeModel.find({});
+    const response = await RecipeModel.find({}).sort({ createdAt: -1 });
     res.json(response);
   } catch (err) {
     res.json(err);
